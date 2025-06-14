@@ -9,6 +9,7 @@ export default class App extends Component {
     this.state = {
       input: "",
       gifs: [],
+      active: false
     };
   }
 
@@ -25,11 +26,11 @@ export default class App extends Component {
             },
             () => {
               if (this.state.gifs.length === 0) {
-                this.setState({ input: "there is nothing founded" });
+                this.setState({ active: true });
 
                 setTimeout(() => {
-                  this.setState({ input: "" });
-                }, 1500);
+                  this.setState({ active: false });
+                }, 2000);
               }
             }
           );
@@ -66,6 +67,7 @@ export default class App extends Component {
           value={this.state.input}
           onClick={this.handleOnClick}
           onChange={this.handleOnChange}
+          active={this.state.active}
         />
         <GifList data={this.state.gifs} />
       </>

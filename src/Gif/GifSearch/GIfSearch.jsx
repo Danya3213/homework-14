@@ -9,7 +9,7 @@ export default class GifSearch extends Component {
     return (
       <article className="wrapper__article">
         <h2 className="wrapper__title--middle">Search gif</h2>
-        <label className="wrapper__label">
+        <label className={`wrapper__label${this.props.active ? " _error" : ""}`}>
           <input
             className="wrapper__input"
             placeholder="Enter keyword"

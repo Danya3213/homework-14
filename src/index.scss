@@ -47,9 +47,35 @@ body {
     border: 1px solid #ffffffd3;
     border-radius: 10px;
     overflow: hidden;
+    position: relative;
 
     &:focus-within {
       border: 1px solid #fffffff8;
+    }
+
+    &::after {
+      content: "Please, enter correct info";
+      position: absolute;
+      top: -50px;
+      left: 6px;
+      transition: all ease-in-out 0.15s;
+      font-size: 30px;
+    }
+
+    &._error {
+      border-color: #720000;
+      & input {
+        top: -50px;
+      }
+
+      & button {
+        border-color: #720000;
+      }
+
+      &::after {
+        top: 50%;
+        transform: translateY(-50%);
+      }
     }
   }
 
@@ -58,6 +84,8 @@ body {
     padding: 3px 6px;
     font-size: 30px;
     flex-grow: 1;
+    position: relative;
+    transition: all ease-in-out 0.15s;
   }
 
   &__button {
@@ -102,9 +130,7 @@ body {
   }
 
   &__item {
-
     &-text {
-
       font-size: 25px;
       margin-block: 10px;
     }
